@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --viking-navy: #0E2340;
+  --viking-red: #EB1C23;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Key Takeaway blocks */
+.prose blockquote {
+  border-left-color: var(--viking-red);
+  background-color: #f8f9fa;
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: normal;
+}
+
+.prose blockquote strong {
+  color: var(--viking-navy);
+}
+
+/* Clean link styling */
+.prose a {
+  text-decoration-color: rgba(14, 35, 64, 0.3);
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--viking-red);
+}
