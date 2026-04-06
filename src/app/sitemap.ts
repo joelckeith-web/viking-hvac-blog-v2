@@ -12,6 +12,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const landingPages = [
+    'ac-repair',
+    'ac-replacement',
+  ].map((slug) => ({
+    url: `${siteConfig.url}/lp/${slug}/`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
   return [
     {
       url: `${siteConfig.url}/`,
@@ -19,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 1.0,
     },
+    ...landingPages,
     ...blogEntries,
   ];
 }

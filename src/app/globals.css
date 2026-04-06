@@ -4,7 +4,13 @@
 
 :root {
   --viking-navy: #0E2340;
+  --viking-navy-light: #004281;
   --viking-red: #EB1C23;
+  --viking-red-dark: #C41920;
+  --accent-bg: #F5F5F0;
+  --dark: #1A1A1A;
+  --muted: #6B7280;
+  --light: #F9FAFB;
 }
 
 body {
@@ -34,4 +40,28 @@ body {
 
 .prose a:hover {
   text-decoration-color: var(--viking-red);
+}
+
+/* ── Landing Page Utilities ────────────────────────── */
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-viking-red text-white font-bold rounded-md hover:bg-viking-red-dark transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-white text-white font-bold rounded-md hover:bg-white hover:text-viking-navy transition-colors duration-200;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-viking-navy text-white font-bold rounded-md hover:bg-viking-navy-light transition-colors duration-200;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .container-narrow {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }
