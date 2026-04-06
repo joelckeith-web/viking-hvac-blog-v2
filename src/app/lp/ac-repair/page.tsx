@@ -342,11 +342,20 @@ export default function ACRepairLP() {
         </div>
       </section>
 
-      {/* ==================== DEEP CONTENT (text left, image right) ==================== */}
+      {/* ==================== DEEP CONTENT (image left, text right) ==================== */}
       <section className="section-padding bg-white">
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+              <Image
+                src="/images/viking-tech-march.jpg"
+                alt="Viking HVAC technician performing AC repair"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="text-right">
               <h2 className="text-3xl md:text-4xl font-extrabold text-dark mb-6">
                 AC Repair in Phoenix: What Homeowners Need to Know
               </h2>
@@ -370,15 +379,6 @@ export default function ACRepairLP() {
                   diagnose it, the less it typically costs to fix.
                 </p>
               </div>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
-              <Image
-                src="/images/viking-tech-march.jpg"
-                alt="Viking HVAC technician performing AC repair"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
             </div>
           </div>
         </div>
