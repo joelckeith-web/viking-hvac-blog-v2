@@ -427,7 +427,7 @@ export default function SwampCoolerLP() {
           alt="Viking HVAC service team"
           fill
           className="object-cover"
-          style={{ objectPosition: '50% 18%' }}
+          style={{ objectPosition: '50% 32%' }}
           quality={75}
           sizes="100vw"
         />
