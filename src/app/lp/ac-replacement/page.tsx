@@ -498,7 +498,7 @@ export default function ACReplacementLP() {
           alt="Viking HVAC installation team"
           fill
           className="object-cover"
-          style={{ objectPosition: '50% 25%' }}
+          style={{ objectPosition: '50% 18%' }}
           quality={75}
           sizes="100vw"
         />
