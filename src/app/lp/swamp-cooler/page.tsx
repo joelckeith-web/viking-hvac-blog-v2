@@ -426,7 +426,7 @@ export default function SwampCoolerLP() {
           src="/images/viking-team.jpg"
           alt="Viking HVAC service team"
           fill
-          className="object-cover"
+          className="object-cover object-top"
           quality={75}
           sizes="100vw"
         />
