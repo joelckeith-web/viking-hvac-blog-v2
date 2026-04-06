@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import {
   Phone,
   Shield,
@@ -141,21 +142,22 @@ const processSteps = [
   },
 ];
 
+// Real Google Business Profile reviews (4.9 stars, 358+ reviews)
 const reviews = [
   {
-    text: 'Viking replaced our 18-year-old system with a new Trane unit. The difference is night and day — our house cools faster and our electric bill dropped by almost $100/month in summer.',
-    author: 'Jennifer & Tom S.',
-    location: 'Gilbert, AZ',
+    text: 'I had ordered my A/C on line and Viking was contracted to do the install, Nino and Albert showed up they were very courteous and got right to work mind you it\'s 108 degrees out and they were working up on the roof. They got the job done in a timely manner and cleaned up after they were done. My wife and I appreciate the job they did and would recommend Viking Heating and Air-conditioning to everyone.',
+    author: 'Charles Marshall',
+    location: 'Google Review',
   },
   {
-    text: 'No high-pressure sales tactics. They gave us three options, explained the pros and cons of each, and let us decide. Installation was done in about 6 hours. Very professional crew.',
-    author: 'Carlos R.',
-    location: 'Chandler, AZ',
+    text: 'You are all the best ever!! I have had several different heating and a/c services in the past and none have been as professional and knowledgeable as your professionals! Thanks for the service!!',
+    author: 'Charlotte Christian',
+    location: 'Google Review',
   },
   {
-    text: 'Our old unit used R-22 and we were tired of paying a fortune for refrigerant. Viking set us up with a new high-efficiency system and the financing made it easy to manage. Best decision we made.',
-    author: 'Lisa M.',
-    location: 'Mesa, AZ',
+    text: 'I can\'t recommend Viking Heating and Air enough! They have taken care of me and my family members several times over and I know they are a company full of integrity and great service.',
+    author: 'Viking HVAC Customer',
+    location: 'Google Review',
   },
 ];
 
@@ -211,7 +213,16 @@ export default function ACReplacementLP() {
     <>
       {/* ==================== HERO ==================== */}
       <section className="relative bg-viking-navy text-white overflow-hidden min-h-[600px] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-viking-navy via-viking-navy to-viking-navy-light/30" />
+        <Image
+          src="/images/viking-hero-bg.jpg"
+          alt="Viking HVAC technician installing air conditioning system"
+          fill
+          priority
+          className="object-cover"
+          quality={80}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-viking-navy/95 via-viking-navy/80 to-viking-navy/50" />
 
         <div className="relative container-narrow section-padding w-full">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -284,7 +295,12 @@ export default function ACReplacementLP() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-light rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow"
+                className="bg-light rounded-xl p-6 border border-transparent hover:shadow-lg transition-shadow"
+                style={{
+                  borderImage: 'linear-gradient(135deg, #1B4580, #0E2340) 1',
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                }}
               >
                 <div className="w-12 h-12 bg-viking-navy/10 rounded-lg flex items-center justify-center mb-4">
                   <benefit.icon className="w-6 h-6 text-viking-navy" />
@@ -368,7 +384,6 @@ export default function ACReplacementLP() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Repair */}
             <div className="bg-light rounded-xl p-8 border-2 border-viking-navy/20">
               <h3 className="text-xl font-bold text-viking-navy mb-4">
                 {decisionMatrix.repair.title}
@@ -383,7 +398,6 @@ export default function ACReplacementLP() {
               </ul>
             </div>
 
-            {/* Replace */}
             <div className="bg-viking-red/5 rounded-xl p-8 border-2 border-viking-red/20">
               <h3 className="text-xl font-bold text-viking-red mb-4">
                 {decisionMatrix.replace.title}
@@ -406,40 +420,43 @@ export default function ACReplacementLP() {
         </div>
       </section>
 
-      {/* ==================== DEEP CONTENT ==================== */}
+      {/* ==================== DEEP CONTENT (text left, image right) ==================== */}
       <section className="section-padding bg-accent">
         <div className="container-narrow">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-dark mb-6">
-              AC Replacement in Phoenix: What to Expect
-            </h2>
-            <div className="text-muted space-y-4 leading-relaxed">
-              <p>
-                Replacing an air conditioning system in Phoenix is not the same as replacing
-                one in Seattle or Chicago. The extreme desert heat — regularly exceeding 110
-                degrees for months at a time — demands systems that are properly sized,
-                correctly installed, and rated for sustained high-temperature operation.
-              </p>
-              <p>
-                Proper sizing is the single most important factor in a successful AC
-                replacement. An undersized system will run constantly and never keep up on
-                the hottest days. An oversized system will short-cycle — turning on and off
-                repeatedly — which wastes energy, increases humidity, and shortens the
-                equipment lifespan. We perform a Manual J load calculation on every
-                installation to ensure the system matches your home.
-              </p>
-              <p>
-                Installation quality matters just as much as the equipment. The best AC
-                unit in the world will underperform if the ductwork is leaking, the
-                refrigerant charge is off, or the airflow is restricted. Our licensed
-                installers follow manufacturer specifications on every job and test
-                system performance before we leave.
-              </p>
-              <p>
-                Viking has been installing AC systems across the Phoenix Metro Valley since
-                2016. We are not a volume shop pushing one brand — we install the system
-                that fits your home, your budget, and your goals. That is the Viking difference.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-dark mb-6">
+                AC Replacement in Phoenix: What to Expect
+              </h2>
+              <div className="text-muted space-y-4 leading-relaxed">
+                <p>
+                  Replacing an air conditioning system in Phoenix is not the same as replacing
+                  one in Seattle or Chicago. The extreme desert heat demands systems that are
+                  properly sized, correctly installed, and rated for sustained high-temperature
+                  operation.
+                </p>
+                <p>
+                  Proper sizing is the single most important factor in a successful AC
+                  replacement. An undersized system will run constantly and never keep up on
+                  the hottest days. An oversized system will short-cycle — wasting energy and
+                  shortening the equipment lifespan. We perform a Manual J load calculation
+                  on every installation to ensure the system matches your home.
+                </p>
+                <p>
+                  Viking has been installing AC systems across the Phoenix Metro Valley since
+                  2016. We are not a volume shop pushing one brand — we install the system
+                  that fits your home, your budget, and your goals.
+                </p>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+              <Image
+                src="/images/ac-unit.jpg"
+                alt="New air conditioning unit installed by Viking HVAC"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
@@ -479,9 +496,19 @@ export default function ACReplacementLP() {
         </div>
       </section>
 
-      {/* ==================== 3-STEP PROCESS ==================== */}
-      <section className="section-padding bg-viking-navy text-white">
-        <div className="container-narrow">
+      {/* ==================== 3-STEP PROCESS (with bg image) ==================== */}
+      <section className="relative section-padding text-white overflow-hidden">
+        <Image
+          src="/images/viking-team.jpg"
+          alt="Viking HVAC installation team"
+          fill
+          className="object-cover"
+          quality={75}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-viking-navy/95 via-viking-navy/90 to-viking-navy-light/85" />
+
+        <div className="relative container-narrow">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
               How It Works
@@ -508,7 +535,7 @@ export default function ACReplacementLP() {
         </div>
       </section>
 
-      {/* ==================== REVIEWS ==================== */}
+      {/* ==================== REVIEWS (real GBP reviews) ==================== */}
       <section className="section-padding bg-white">
         <div className="container-narrow">
           <div className="text-center mb-12">
@@ -521,7 +548,7 @@ export default function ACReplacementLP() {
               ))}
             </div>
             <p className="text-muted">
-              {siteConfig.averageRating}-star average across {siteConfig.reviewCount}+ reviews
+              {siteConfig.averageRating}-star average across {siteConfig.reviewCount}+ Google reviews
             </p>
           </div>
 
@@ -555,22 +582,20 @@ export default function ACReplacementLP() {
       {/* ==================== FAQ ==================== */}
       <FAQAccordion faqs={faqs} title="AC Replacement FAQs" />
 
-      {/* ==================== FINAL CTA ==================== */}
-      <section className="relative bg-viking-navy text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-viking-navy via-viking-navy-light/20 to-viking-navy" />
-
-        <div className="relative container-narrow section-padding text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+      {/* ==================== FINAL CTA (white background) ==================== */}
+      <section className="section-padding bg-white">
+        <div className="container-narrow text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-dark mb-4">
             Ready for a New AC System?
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+          <p className="text-muted text-lg max-w-2xl mx-auto mb-6">
             Get a free, no-obligation in-home estimate. We will assess your home, recommend
             the right system, and give you clear pricing — no pressure, no surprises.
           </p>
 
           <a
             href={siteConfig.phoneHref}
-            className="inline-flex items-center gap-2 font-bold text-2xl md:text-3xl text-viking-red hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 font-bold text-2xl md:text-3xl text-viking-red hover:text-viking-red-dark transition-colors mb-8"
           >
             <Phone className="h-6 w-6 md:h-7 md:w-7" />
             {siteConfig.phone}
@@ -582,7 +607,7 @@ export default function ACReplacementLP() {
             </ScrollToTopLink>
             <a
               href={siteConfig.phoneHref}
-              className="btn-secondary text-base px-8 py-3.5"
+              className="btn-navy text-base px-8 py-3.5"
             >
               Call Now
             </a>

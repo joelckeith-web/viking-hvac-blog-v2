@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import {
   Phone,
   Shield,
@@ -10,7 +11,6 @@ import {
   ThermometerSun,
   Wrench,
   CheckCircle,
-  AlertTriangle,
   BadgeCheck,
   MapPin,
 } from 'lucide-react';
@@ -121,21 +121,22 @@ const processSteps = [
   },
 ];
 
+// Real Google Business Profile reviews (4.9 stars, 358+ reviews)
 const reviews = [
   {
-    text: 'They came out the same day I called. Diagnosed a bad capacitor, had the part on the truck, and had us cool again within an hour. Fair price and no pressure to buy a new system.',
-    author: 'Mike R.',
-    location: 'Chandler, AZ',
+    text: 'I had ordered my A/C on line and Viking was contracted to do the install, Nino and Albert showed up they were very courteous and got right to work mind you it\'s 108 degrees out and they were working up on the roof. They got the job done in a timely manner and cleaned up after they were done. My wife and I appreciate the job they did and would recommend Viking Heating and Air-conditioning to everyone.',
+    author: 'Charles Marshall',
+    location: 'Google Review',
   },
   {
-    text: 'Honest people. Two other companies told us we needed a full replacement. Viking found the actual problem — a refrigerant leak — and fixed it for a fraction of the cost.',
-    author: 'Sarah T.',
-    location: 'Gilbert, AZ',
+    text: 'You are all the best ever!! I have had several different heating and a/c services in the past and none have been as professional and knowledgeable as your professionals! Thanks for the service!!',
+    author: 'Charlotte Christian',
+    location: 'Google Review',
   },
   {
-    text: 'Our AC died at 11pm on a Saturday in July. Viking answered, had a tech to us by Sunday morning, and it was running by noon. Can\'t recommend them enough for emergencies.',
-    author: 'David M.',
-    location: 'Mesa, AZ',
+    text: 'I can\'t recommend Viking Heating and Air enough! They have taken care of me and my family members several times over and I know they are a company full of integrity and great service.',
+    author: 'Viking HVAC Customer',
+    location: 'Google Review',
   },
 ];
 
@@ -191,8 +192,16 @@ export default function ACRepairLP() {
     <>
       {/* ==================== HERO ==================== */}
       <section className="relative bg-viking-navy text-white overflow-hidden min-h-[600px] flex items-center">
-        {/* Gradient overlay — no hero image needed, clean navy gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-viking-navy via-viking-navy to-viking-navy-light/30" />
+        <Image
+          src="/images/viking-hero-bg.jpg"
+          alt="Viking HVAC technician working on air conditioning"
+          fill
+          priority
+          className="object-cover"
+          quality={80}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-viking-navy/95 via-viking-navy/80 to-viking-navy/50" />
 
         <div className="relative container-narrow section-padding w-full">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -265,7 +274,12 @@ export default function ACRepairLP() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-light rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow"
+                className="bg-light rounded-xl p-6 border border-transparent hover:shadow-lg transition-shadow"
+                style={{
+                  borderImage: 'linear-gradient(135deg, #1B4580, #0E2340) 1',
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                }}
               >
                 <div className="w-12 h-12 bg-viking-navy/10 rounded-lg flex items-center justify-center mb-4">
                   <benefit.icon className="w-6 h-6 text-viking-navy" />
@@ -285,12 +299,9 @@ export default function ACRepairLP() {
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <AlertTriangle className="w-8 h-8 text-viking-red" />
-                <h2 className="text-3xl md:text-4xl font-extrabold text-dark">
-                  Common AC Problems We Fix
-                </h2>
-              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-dark mb-4">
+                Common AC Problems We Fix
+              </h2>
               <p className="text-muted mb-8">
                 If any of these sound familiar, our licensed technicians can diagnose and
                 repair the issue — usually the same day you call.
@@ -336,42 +347,43 @@ export default function ACRepairLP() {
         </div>
       </section>
 
-      {/* ==================== DEEP CONTENT ==================== */}
+      {/* ==================== DEEP CONTENT (text left, image right) ==================== */}
       <section className="section-padding bg-white">
         <div className="container-narrow">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-dark mb-6">
-              AC Repair in Phoenix: What Homeowners Need to Know
-            </h2>
-            <div className="text-muted space-y-4 leading-relaxed">
-              <p>
-                Phoenix is one of the most demanding environments for air conditioning
-                systems in the country. With summer temperatures routinely exceeding 110
-                degrees, your AC runs harder and longer than systems in most other climates.
-                That kind of sustained load accelerates wear on every component — from
-                capacitors and contactors to compressors and coils.
-              </p>
-              <p>
-                The most common AC failures we see in the Valley are refrigerant leaks,
-                failed capacitors, clogged condensate drains, and worn-out compressors.
-                Many of these issues are straightforward repairs when caught early, but
-                they can cascade into expensive problems if ignored. A system running low
-                on refrigerant, for example, forces the compressor to work harder — leading
-                to premature compressor failure and a repair bill that could have been
-                avoided.
-              </p>
-              <p>
-                That is why we recommend addressing AC problems as soon as you notice them.
-                Strange noises, weak airflow, warm air from the vents, or higher-than-normal
-                electric bills are all signs that something needs attention. The sooner we
-                diagnose it, the less it typically costs to fix.
-              </p>
-              <p>
-                Viking Heating &amp; Air Conditioning has been serving the Phoenix Metro
-                Valley since 2016. We are a family-owned operation — not a franchise, not a
-                call center. When you call us, you get a local technician who knows Arizona
-                HVAC systems inside and out.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-dark mb-6">
+                AC Repair in Phoenix: What Homeowners Need to Know
+              </h2>
+              <div className="text-muted space-y-4 leading-relaxed">
+                <p>
+                  Phoenix is one of the most demanding environments for air conditioning
+                  systems in the country. With summer temperatures routinely exceeding 110
+                  degrees, your AC runs harder and longer than systems in most other climates.
+                  That kind of sustained load accelerates wear on every component.
+                </p>
+                <p>
+                  The most common AC failures we see in the Valley are refrigerant leaks,
+                  failed capacitors, clogged condensate drains, and worn-out compressors.
+                  Many of these issues are straightforward repairs when caught early, but
+                  they can cascade into expensive problems if ignored.
+                </p>
+                <p>
+                  That is why we recommend addressing AC problems as soon as you notice them.
+                  Strange noises, weak airflow, warm air from the vents, or higher-than-normal
+                  electric bills are all signs that something needs attention. The sooner we
+                  diagnose it, the less it typically costs to fix.
+                </p>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+              <Image
+                src="/images/viking-tech-march.jpg"
+                alt="Viking HVAC technician performing AC repair"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
@@ -411,9 +423,19 @@ export default function ACRepairLP() {
         </div>
       </section>
 
-      {/* ==================== 3-STEP PROCESS ==================== */}
-      <section className="section-padding bg-viking-navy text-white">
-        <div className="container-narrow">
+      {/* ==================== 3-STEP PROCESS (with bg image) ==================== */}
+      <section className="relative section-padding text-white overflow-hidden">
+        <Image
+          src="/images/viking-van.jpg"
+          alt="Viking HVAC service van"
+          fill
+          className="object-cover"
+          quality={75}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-viking-navy/95 via-viking-navy/90 to-viking-navy-light/85" />
+
+        <div className="relative container-narrow">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
               How It Works
@@ -440,7 +462,7 @@ export default function ACRepairLP() {
         </div>
       </section>
 
-      {/* ==================== REVIEWS ==================== */}
+      {/* ==================== REVIEWS (real GBP reviews) ==================== */}
       <section className="section-padding bg-white">
         <div className="container-narrow">
           <div className="text-center mb-12">
@@ -453,7 +475,7 @@ export default function ACRepairLP() {
               ))}
             </div>
             <p className="text-muted">
-              {siteConfig.averageRating}-star average across {siteConfig.reviewCount}+ reviews
+              {siteConfig.averageRating}-star average across {siteConfig.reviewCount}+ Google reviews
             </p>
           </div>
 
@@ -487,22 +509,20 @@ export default function ACRepairLP() {
       {/* ==================== FAQ ==================== */}
       <FAQAccordion faqs={faqs} title="AC Repair FAQs" />
 
-      {/* ==================== FINAL CTA ==================== */}
-      <section className="relative bg-viking-navy text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-viking-navy via-viking-navy-light/20 to-viking-navy" />
-
-        <div className="relative container-narrow section-padding text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+      {/* ==================== FINAL CTA (white background) ==================== */}
+      <section className="section-padding bg-white">
+        <div className="container-narrow text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-dark mb-4">
             Ready to Get Your AC Fixed?
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
+          <p className="text-muted text-lg max-w-2xl mx-auto mb-6">
             Call now for fast, honest AC repair. Same-day service available across the
             Phoenix Metro Valley. No hidden fees, no pressure — just reliable cooling.
           </p>
 
           <a
             href={siteConfig.phoneHref}
-            className="inline-flex items-center gap-2 font-bold text-2xl md:text-3xl text-viking-red hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 font-bold text-2xl md:text-3xl text-viking-red hover:text-viking-red-dark transition-colors mb-8"
           >
             <Phone className="h-6 w-6 md:h-7 md:w-7" />
             {siteConfig.phone}
@@ -514,7 +534,7 @@ export default function ACRepairLP() {
             </ScrollToTopLink>
             <a
               href={siteConfig.phoneHref}
-              className="btn-secondary text-base px-8 py-3.5"
+              className="btn-navy text-base px-8 py-3.5"
             >
               Call Now
             </a>

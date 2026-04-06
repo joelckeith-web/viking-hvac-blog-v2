@@ -17,7 +17,7 @@ export const siteConfig = {
   rocLicense: '323699',
   googleBusinessProfile: 'https://g.co/kgs/ZD1yBA6',
   foundedYear: 2016,
-  reviewCount: 240,
+  reviewCount: 358,
   averageRating: 4.9,
   serviceAreas: [
     'Chandler', 'Gilbert', 'Mesa', 'Phoenix',
