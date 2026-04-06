@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const landingPages = [
     'ac-repair',
     'ac-replacement',
+    'swamp-cooler',
   ].map((slug) => ({
     url: `${siteConfig.url}/lp/${slug}/`,
     lastModified: new Date(),
