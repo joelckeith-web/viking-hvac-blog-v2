@@ -223,7 +223,7 @@ export default function ACRepairLP() {
               {/* Phone CTA */}
               <a
                 href={siteConfig.phoneHref}
-                className="inline-flex items-center gap-2 font-bold text-xl text-viking-red hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 bg-viking-red hover:bg-viking-red-dark text-white font-bold text-lg px-6 py-3 rounded-lg transition-colors"
               >
                 <Phone className="w-5 h-5" />
                 {siteConfig.phone}
@@ -274,12 +274,7 @@ export default function ACRepairLP() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-light rounded-xl p-6 border border-transparent hover:shadow-lg transition-shadow"
-                style={{
-                  borderImage: 'linear-gradient(135deg, #1B4580, #0E2340) 1',
-                  borderWidth: '1px',
-                  borderStyle: 'solid',
-                }}
+                className="bg-light rounded-xl p-6 border border-viking-navy-light/30 hover:border-viking-navy-light/60 hover:shadow-lg transition-all"
               >
                 <div className="w-12 h-12 bg-viking-navy/10 rounded-lg flex items-center justify-center mb-4">
                   <benefit.icon className="w-6 h-6 text-viking-navy" />
