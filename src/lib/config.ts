@@ -17,7 +17,7 @@ export const siteConfig = {
   rocLicense: '323699',
   googleBusinessProfile: 'https://g.co/kgs/ZD1yBA6',
   foundedYear: 2016,
-  reviewCount: 200,
+  reviewCount: 240,
   averageRating: 4.9,
   serviceAreas: [
     'Chandler', 'Gilbert', 'Mesa', 'Phoenix',
@@ -29,7 +29,7 @@ export const siteConfig = {
   },
   colors: {
     navy: '#0E2340',
-    navyLight: '#004281',
+    navyLight: '#1B4580',
     red: '#EB1C23',
   },
   gtmId: process.env.NEXT_PUBLIC_GTM_ID || '',

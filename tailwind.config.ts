@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         viking: {
           navy: '#0E2340',
-          'navy-light': '#004281',
+          'navy-light': '#1B4580',
           red: '#EB1C23',
           'red-dark': '#C41920',
         },
